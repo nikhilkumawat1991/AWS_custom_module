@@ -1,0 +1,21 @@
+---
+RecipeFormatVersion: '2020-01-25'
+ComponentName: com.example.PubSubPublisherJava
+ComponentVersion: '4.0.0'
+ComponentDescription: A component that publishes messages.
+ComponentPublisher: Amazon
+ComponentConfiguration:
+  DefaultConfiguration:
+    accessControl:
+      aws.greengrass.ipc.mqttproxy:
+        'com.example.PubSubPublisherJava:pubsub:1':
+          policyDescription: Allows access to publish to all topics.
+          operations:
+          - 'aws.greengrass#PublishToIoTCore'
+          resources:
+          - '*'
+Manifests:
+  - Lifecycle:
+      Run: |-
+        java -jar {artifacts:path}/PubSubPublisherJava-1.0-SNAPSHOT-jar-with-dependencies.jar
+

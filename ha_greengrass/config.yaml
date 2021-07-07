@@ -1,0 +1,32 @@
+app: home_assistant_aws
+app_info:
+  container: application
+  deployment: single
+  description: Sample container that demonstrates running Alpine with Python 3
+  language: node
+  node_types:
+  - MEN
+  targets:
+  - vhx09-10
+  - vhc05
+  type: app
+  version: 2.0.6
+  view: :9100
+docker:
+  ports:
+    publish: 9070:8123
+  secure:
+    arg:
+      partner_features: []
+    label:
+      devices:
+      - DEV:SHARED:zigbee
+      features:
+      - DEVELOPER
+      unauth_host: true
+      uuid: C430AFB6-E8B0-4E23-AE57-08B558ADF682
+      volumes:
+        offers: []
+        persists: home-assist
+        requests: []
+version: 2
